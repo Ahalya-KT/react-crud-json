@@ -31,7 +31,9 @@ function EmpCreate() {
       .max(70, "Too Long!")
       .required(" name is Required"),
 
-    phone: Yup.string().required(" phone  is Required"),
+    phone: Yup.string()
+      .matches(/^\d+$/, "Phone number must only contain digits")
+      .required("Phone is required"),
     email: Yup.string().email("Invalid email").required(" Email is Required"),
   });
 

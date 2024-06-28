@@ -1,12 +1,6 @@
 {
   "employee": [
     {
-      "id": "ef31",
-      "name": "Ahalya KT",
-      "phone": "09037394173",
-      "email": "ahalyakt002@gmail.com"
-    },
-    {
       "id": "1ebe",
       "name": "Ahalya KT",
       "phone": "09037394173",
@@ -16,6 +10,12 @@
       "id": "1",
       "name": "Ahalya KT",
       "phone": "09037394173",
+      "email": "ahalyakt002@gmail.com"
+    },
+    {
+      "id": "1",
+      "name": "Ahalya KT",
+      "phone": "4444444444444",
       "email": "ahalyakt002@gmail.com"
     }
   ]
