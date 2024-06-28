@@ -1,35 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function EmpDetails() {
   const { empid } = useParams();
   const [empData, setEmpDataChange] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:8000/employee/" + empid)
+    axios
+      .get("http://localhost:8000/employee/" + empid)
       .then((res) => {
         console.log(res);
-        return res.json();
-      })
-      .then((resp) => {
-        setEmpDataChange(resp);
+        setEmpDataChange(res.data);
       })
       .catch((err) => {
         console.log(err.message);
       });
-  }, []);
+  }, [empid]);
 
   return (
-    <div className="text-center py-32">
+    <div className="flex flex-col items-center justify-center min-h-screen  bg-gray-100">
+      <div className="text-center">
+        <p>EMPLOYEE DETAILS</p>
+      </div>
       {empData && (
-        <div>
-          <p className="text-xl">
-            The Employee name is: {empData.name} ({empData.id})
+        <div className="bg-white shadow-lg rounded-lg p-20 ">
+          <p className="text-xl font-semibold mb-4">
+            {empData?.name} ({empData.id})
           </p>
-          <p className="pt-5">Email:{empData.email}</p>
-          <p> Phone Number:{empData.phone}</p>
-          <Link to={"/"} className="text-cyan-600">
+          <p className="mb-2">
+            <strong>Email:</strong> {empData.email}
+          </p>
+          <p className="mb-4">
+            <strong>Phone Number:</strong> {empData.phone}
+          </p>
+          <Link to={"/"} className="text-cyan-600 hover:underline">
             Back to List
           </Link>
         </div>

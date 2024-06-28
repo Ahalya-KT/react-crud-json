@@ -2,21 +2,22 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 function EmpCreate() {
   const navigate = useNavigate();
+  //Toast Message
+  const SuccessfulToast = () => toast.success("Saved Successfully");
 
   const handleSubmit = (values) => {
-    // e.preventDefault();
     const empData = { ...values };
-
-    fetch("http://localhost:8000/employee", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(empData),
-    })
+    axios
+      .post("http://localhost:8000/employee", empData, {
+        headers: { "Content-Type": "application/json" },
+      })
       .then((res) => {
-        alert("Saved Sucsessfully");
+        SuccessfulToast();
         navigate("/");
       })
       .catch((err) => {
