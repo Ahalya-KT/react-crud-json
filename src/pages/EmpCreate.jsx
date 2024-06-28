@@ -60,7 +60,7 @@ function EmpCreate() {
               type="text"
               id="id"
               name="id"
-              disabled="disabled"
+              // disabled="disabled"
               className="mt-2 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>

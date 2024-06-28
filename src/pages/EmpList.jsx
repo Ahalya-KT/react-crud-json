@@ -55,9 +55,9 @@ function EmpList() {
   }, []);
 
   return (
-    <div>
+    <div className="">
       {/* heading */}
-      <div className="">
+      <div>
         <h2 className="py-10 text-center text-2xl font-bold text-teal-700">
           EMPLOYEE LIST
         </h2>
