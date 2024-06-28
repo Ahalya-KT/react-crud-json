@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { IoPersonCircleSharp } from "react-icons/io5";
 
 function EmpDetails() {
   const { empid } = useParams();
@@ -25,7 +26,11 @@ function EmpDetails() {
         <p>EMPLOYEE DETAILS</p>
       </div>
       {empData && (
-        <div className="bg-white shadow-lg rounded-lg p-20 ">
+        <div className="bg-white shadow-lg rounded-lg p-20 flex flex-col justify-center items-center ">
+          <div className="py-5">
+            <IoPersonCircleSharp size={60} />
+          </div>
+
           <p className="text-xl font-semibold mb-4">
             {empData?.name} ({empData.id})
           </p>
